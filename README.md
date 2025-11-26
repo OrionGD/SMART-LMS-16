@@ -188,11 +188,21 @@ Smart_LMS/
 
 ---
 
-## 👥 Contributors
-1. Godfrey T R — Lead Developer
-2. Girijesh R — AI Integration Engineer
-3. Grish Narayanan S — Backend Developer
-4. Harihar R — Frontend Developer
+##🖼 Contributor Avatars
+<p align="left"> <a href="https://github.com/HARIHAR1406" target="_blank"> <img src="https://github.com/HARIHAR1406.png" width="100" height="100" alt="Harihar" style="border-radius:50%;" /> </a> <a href="https://github.com/GRISH-SWIZZ" target="_blank"> <img src="https://github.com/GRISH-SWIZZ.png" width="100" height="100" alt="Grish" style="border-radius:50%;" /> </a> <a href="https://github.com/OrionGD" target="_blank"> <img src="https://github.com/OrionGD.png" width="100" height="100" alt="Godfrey T R" style="border-radius:50%;" /> </a> <a href="https://github.com/girijesh" target="_blank"> <img src="https://github.com/girijesh.png" width="100" height="100" alt="Girijesh" style="border-radius:50%;" /> </a> </p>
+
+---
+
+##Contributors
+| **Name**          | **Role**                | **LinkedIn Profile** |
+| ----------------- | ----------------------- | -------------------- |
+| Godfrey T R       | Lead Developer          | [LinkedIn](https://www.linkedin.com/in/godfrey-1823lw)        |
+| Girijesh R        | AI Integration Engineer | [LinkedIn](linkedin.com/in/girijesh-r-aa3592326)        |
+| Grish Narayanan S | Backend Developer       | [LinkedIn](https://www.linkedin.com/in/grish-narayanan)        |
+| Harihar R         | Frontend Developer      | [LinkedIn](https://www.linkedin.com/in/harihar-r-1401hh)        |
+
+
+
 
 ---
 

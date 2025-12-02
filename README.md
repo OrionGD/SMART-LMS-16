@@ -201,9 +201,39 @@ Smart_LMS/
 | Grish Narayanan S | Backend Developer       | [LinkedIn](https://www.linkedin.com/in/grish-narayanan)        |
 | Harihar R         | Frontend Developer      | [LinkedIn](https://www.linkedin.com/in/harihar-r-1401hh)        |
 
+```mermaid
+gantt
+    title Smart LMS Development Lifecycle
+    dateFormat  YYYY-MM-DD
 
+    section Sprint 1
+    Architecture & Auth          :s1, 2025-08-25, 14d
 
+    section Sprint 2
+    Course CRUD & DB Seeding      :s2, after s1, 14d
 
+    section Sprint 3
+    AI Integration       :s3, after s2, 14d
+
+    section Sprint 4
+    UI Refinement & TTS           :s4, after s3, 14d
+
+    section Sprint 5
+    Additional Features            :s5, after s4, 14d
+
+    section Sprint 6
+    QA & Polishing                 :s6, after s5, 14d
+
+    section Sprint 7
+    Pre-Release Improvements       :s7, after s6, 14d
+
+    section Sprint 8
+    Final Release             :s8, 2025-12-01, 7d
+
+    section Milestone
+     ⏳        :milestone, m5, 2025-12-08, 0d
+
+```
 ---
 
 ## 📄 License

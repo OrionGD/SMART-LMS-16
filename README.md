@@ -3,11 +3,12 @@
 
 ![Project Status](https://img.shields.io/badge/Status-Prototype%20Deployment-success)
 ![Tech Stack](https://img.shields.io/badge/Stack-MERN-blue)
-![AI Powered](https://img.shields.io/badge/AI-Google%20Gemini-purple)
+![Frontend](https://img.shields.io/badge/React-v19-61DAFB)
+![AI Powered](https://img.shields.io/badge/AI-Google%20Gemini%202.5-purple)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 > **Experience education, evolved.**
-> Smart LMS transforms traditional e-learning into a truly *personalized* experience using Generative AI. It adapts lessons to each learner’s style, pace, and cognitive preferences.
+> Smart LMS transforms traditional e-learning into a truly *personalized* experience using Generative AI. It acts as an intelligent tutor, adapting lessons to each learner’s style, pace, and cognitive preferences in real-time.
 
 ---
 
@@ -19,8 +20,8 @@
 * [Tech Stack](#-tech-stack)
 * [System Architecture](#-system-architecture)
 * [Getting Started](#-getting-started)
+* [Demo Credentials](#-demo-credentials)
 * [Screenshots](#-screenshots)
-* [Project Structure](#-project-structure)
 * [Contributors](#-contributors)
 * [License](#-license)
 
@@ -28,9 +29,9 @@
 
 ## 🔭 Overview
 
-Traditional Learning Management Systems often follow a rigid “one-size-fits-all” structure. **Smart LMS** reimagines this paradigm by integrating *Generative AI* to create a personalized learning loop.
+Traditional Learning Management Systems often follow a rigid “one-size-fits-all” structure. **Smart LMS** reimagines this paradigm by integrating **Google Gemini 2.5 Flash** to create a personalized learning loop.
 
-Built with the **MERN Stack** and powered by **Google Gemini**, Smart LMS identifies user learning preferences (Visual, Auditory, Kinesthetic, etc.) and dynamically transforms static lesson content into tailored explanations, simplified summaries, stories, or technical breakdowns — based on the learner’s needs.
+Identifying user learning preferences (Visual, Auditory, Kinesthetic, etc.) via a psychometric profile, the system dynamically intercepts static lesson content and transforms it into tailored explanations, simplified summaries, stories, or technical breakdowns.
 
 ---
 
@@ -38,47 +39,49 @@ Built with the **MERN Stack** and powered by **Google Gemini**, Smart LMS identi
 
 ### 🧠 For Students
 
-* **Adaptive Content:** Rewrite lessons instantly using modes like *Story*, *Technical*, *Beginner*, etc.
-* **Intelligent Assessment:** AI-generated quizzes with detailed explanations for incorrect answers.
-* **Immersive Reader:** Text-to-Speech with customizable AI voice profiles.
-* **Secure Chat:** Instructor–student live messaging.
+* **Adaptive Content Engine:** Rewrites lesson text instantly using modes like *Story*, *Technical*, *Beginner*, or *Analogy-based*.
+* **Immersive Reader (TTS):** High-fidelity Text-to-Speech powered by Gemini Audio, with selectable personas (Friendly, Formal, etc.) and variable playback speed.
+* **Intelligent Assessment:** AI-generated quizzes based strictly on lesson content, providing detailed, corrective feedback for every answer.
+* **Ask Instructor:** Send context-aware queries about specific lessons, with support for file attachments.
+* **Smart Certificates:** Auto-generated, printable certificates upon course completion.
 
 ### 👨‍🏫 For Instructors
 
-* **Course Builder:** Create lessons with text, video, images, and assessments.
-* **AI-Generated Outlines:** Create complete modules using only a topic title.
-* **Engagement Analytics:** Track student progress and performance visually.
+* **AI Course Builder:** Generate complete course outlines and lesson drafts from a single topic title.
+* **Real-time Chat:** A modern side-panel messaging interface to mentor students without losing context.
+* **Engagement Analytics:** Granular tracking of student progress, time spent, and quiz performance.
 
 ### 🛡️ For Administrators
 
-* **System Health Dashboard:** AI-generated operational insights.
-* **RBAC:** Manage access levels and roles.
-* **Visual Reports:** Enrollment, performance, and usage charts.
+* **AI System Report:** Generate executive summaries of system health and user demographics using GenAI.
+* **Visual Analytics:** Interactive charts (Recharts) for role distribution, learning styles, and course popularity.
+* **RBAC & Security:** Role-Based Access Control and secure session management.
 
 ---
 
 ## 🤖 The AI Engine
 
-Smart LMS uses a dedicated `GeminiService` acting as an AI middleware between the UI and database.
+Smart LMS uses a dedicated `GeminiService` acting as an intelligent middleware.
 
 **Pipeline:**
 
-1. **Profiling:** Capture user preferences → learning style, tone, difficulty.
+1. **Profiling:** Capture user preferences → ` { style: "Visual", tone: "Friendly", level: "Beginner" }`.
 2. **Intercept:** Fetch core lesson text when the user opens content.
-3. **Transform:** Run the content through prompt-chains using Gemini Pro.
-4. **Render:** Provide hallucination-checked, personalized content in the UI.
+3. **Prompt Engineering:** Construct a Chain-of-Thought prompt using `gemini-2.5-flash` with strict JSON schemas.
+4. **Render:** Deliver hallucination-checked, personalized content or audio streams (`gemini-2.5-flash-preview-tts`) to the UI.
 
 ---
 
 ## 💻 Tech Stack
+
 | **Layer**     | **Technology**    | **Description**                    |
 | ------------- | ----------------- | ---------------------------------- |
-| **Frontend**  | React + Vite      | Fast, modular UI development       |
+| **Frontend**  | React 19 + Vite   | Fast, modular UI development       |
 | **Styling**   | Tailwind CSS      | Utility-first, responsive design   |
 | **Backend**   | Node.js + Express | RESTful API & server logic         |
-| **Database**  | MongoDB           | NoSQL document storage             |
-| **AI Engine** | Google Gemini Pro | Generative AI for adaptive content |
-| **Charts**    | Recharts          | Analytics & interactive dashboards |
+| **Database**  | MongoDB + Mongoose| NoSQL document storage             |
+| **AI Model**  | Google Gemini 2.5 | Text generation & TTS              |
+| **Viz**       | Recharts          | Analytics & interactive dashboards |
 
 ---
 
@@ -103,11 +106,9 @@ graph TD
 
 ### ✅ Prerequisites
 
-* Node.js v16+
+* Node.js v18+
 * MongoDB (local or Atlas)
 * Google Gemini API Key
-
----
 
 ### 📥 Installation
 
@@ -121,10 +122,10 @@ cd smart-lms
 #### 2. Install Dependencies
 
 ```bash
-# Root dependencies (frontend or monorepo)
+# Root dependencies (frontend)
 npm install
 
-# Backend
+# Backend dependencies
 cd server
 npm install
 cd ..
@@ -132,33 +133,52 @@ cd ..
 
 #### 3. Environment Variables
 
-Create a `.env` file:
+Create a `.env` file in the root directory:
 
 ```env
 API_KEY=your_google_gemini_api_key_here
-MONGO_URI=your_mongodb_connection_string
-PORT=5000
 ```
 
-#### 4. Start the Backend
+#### 4. Start the Application
 
+**Backend (Terminal 1):**
 ```bash
 node server/server.js
 ```
+*Runs on port **5000**.*
 
-*Runs on port **5000***.
-
-#### 5. Start the Frontend
-
+**Frontend (Terminal 2):**
 ```bash
 npm run dev
 ```
+*Runs on port **5173**.*
 
-*Runs on port **5173***.
+#### 5. Database Seeding
+On first run, the system will automatically detect an empty database and seed it with 150+ users (Avengers-themed Instructors) and sample courses.
 
-#### 6. (Optional) Auto Seed
+---
 
-If your database is empty, the system seeds initial roles and sample data.
+## 🔐 Demo Credentials
+
+The system comes pre-seeded with users for testing. 
+
+**Default Password for ALL users:** `password`
+
+### 🔑 Key Accounts
+
+| Role | Username | Name |
+| :--- | :--- | :--- |
+| **Admin** | `DB` | Divya Bharathi |
+| **Instructor** | `tony.stark` | Tony Stark |
+| **Instructor** | `natasha.romanoff` | Natasha Romanoff |
+| **Student** | `aaron.michael.raj` | Aaron Michael Raj |
+
+> 📂 **Full List:** See `documents/credentials.txt` for the complete list of 150+ users.
+
+### 📝 Access Notes
+1. **Password:** All seeded users have the password set to `password`.
+2. **Registration:** You can register new Student accounts via the "Register Now" link on the Login screen.
+3. **Role Management:** New Admin or Instructor accounts must be created by an existing Admin via the **Admin Dashboard**.
 
 ---
 
@@ -174,26 +194,16 @@ If your database is empty, the system seeds initial roles and sample data.
 
 ---
 
-## 📂 Project Structure
+## 🖼 Contributor Avatars
+<p align="left"> 
+<a href="https://github.com/HARIHAR1406" target="_blank"> <img src="https://github.com/HARIHAR1406.png" width="100" height="100" alt="Harihar" style="border-radius:50%;" /> </a> 
+<a href="https://github.com/GRISH-SWIZZ" target="_blank"> <img src="https://github.com/GRISH-SWIZZ.png" width="100" height="100" alt="Grish" style="border-radius:50%;" /> </a> 
+<a href="https://github.com/OrionGD" target="_blank"> <img src="https://github.com/OrionGD.png" width="100" height="100" alt="Godfrey T R" style="border-radius:50%;" /> </a> 
+<a href="https://github.com/girijesh" target="_blank"> <img src="https://github.com/girijesh.png" width="100" height="100" alt="Girijesh" style="border-radius:50%;" /> </a> 
+</p>
 
-```
-Smart_LMS/
-├── components/          # Reusable UI Components
-├── services/            # API & AI Service Layers
-├── server/              # Backend Models, Controllers, Routes
-├── documents/           # Project Report, UML, Designs
-├── App.tsx              # Application Router & State
-└── index.html           # App Entry
-```
+## 👥 Contributors
 
----
-
-##🖼 Contributor Avatars
-<p align="left"> <a href="https://github.com/HARIHAR1406" target="_blank"> <img src="https://github.com/HARIHAR1406.png" width="100" height="100" alt="Harihar" style="border-radius:50%;" /> </a> <a href="https://github.com/GRISH-SWIZZ" target="_blank"> <img src="https://github.com/GRISH-SWIZZ.png" width="100" height="100" alt="Grish" style="border-radius:50%;" /> </a> <a href="https://github.com/OrionGD" target="_blank"> <img src="https://github.com/OrionGD.png" width="100" height="100" alt="Godfrey T R" style="border-radius:50%;" /> </a> <a href="https://github.com/girijesh" target="_blank"> <img src="https://github.com/girijesh.png" width="100" height="100" alt="Girijesh" style="border-radius:50%;" /> </a> </p>
-
----
-
-##Contributors
 | **Name**          | **Role**                | **LinkedIn Profile** |
 | ----------------- | ----------------------- | -------------------- |
 | Godfrey T R       | Lead Developer          | [LinkedIn](https://www.linkedin.com/in/godfrey-1823lw)        |
@@ -201,39 +211,6 @@ Smart_LMS/
 | Grish Narayanan S | Backend Developer       | [LinkedIn](https://www.linkedin.com/in/grish-narayanan)        |
 | Harihar R         | Frontend Developer      | [LinkedIn](https://www.linkedin.com/in/harihar-r-1401hh)        |
 
-```mermaid
-gantt
-    title Smart LMS Development Lifecycle
-    dateFormat  YYYY-MM-DD
-
-    section Sprint 1
-    Architecture & Auth          :s1, 2025-08-25, 14d
-
-    section Sprint 2
-    Course CRUD & DB Seeding      :s2, after s1, 14d
-
-    section Sprint 3
-    AI Integration       :s3, after s2, 14d
-
-    section Sprint 4
-    UI Refinement & TTS           :s4, after s3, 14d
-
-    section Sprint 5
-    Additional Features            :s5, after s4, 14d
-
-    section Sprint 6
-    QA & Polishing                 :s6, after s5, 14d
-
-    section Sprint 7
-    Pre-Release Improvements       :s7, after s6, 14d
-
-    section Sprint 8
-    Final Release             :s8, 2025-12-01, 7d
-
-    section Milestone
-     ⏳        :milestone, m5, 2025-12-08, 0d
-
-```
 ---
 
 ## 📄 License
